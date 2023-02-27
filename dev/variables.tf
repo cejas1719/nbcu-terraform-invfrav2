@@ -15,7 +15,7 @@ variable "aws_default_vpc" {
 
 variable "aws_default_subnets" {
   type        = list(string)
-  default     = ["subnet-0d5098225a7c8ea96", "subnet-0080b163020cad6e2"]
+  default = ["subnet-0d5098225a7c8ea96", "subnet-0080b163020cad6e2"]
   description = "AWS default Subnets created in the region for the VPC"
   nullable    = false
 }
@@ -28,7 +28,7 @@ variable "aws_ecr_arn" {
 }
 
 variable "aws_ecs_task_roles" {
-  type = list(string)
+  type        = list(string)
   default = [
     "arn:aws:iam::203019893885:policy/nbcu-cloudwatch-log-write",
     "arn:aws:iam::203019893885:policy/nbcu-ecs-container-policy"
@@ -39,7 +39,7 @@ variable "aws_ecs_task_roles" {
 }
 
 variable "aws_ecs_execution_roles" {
-  type = list(string)
+  type        = list(string)
   default = [
     "arn:aws:iam::203019893885:policy/nbcu-cloudwatch-log-write",
     "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
@@ -47,20 +47,6 @@ variable "aws_ecs_execution_roles" {
   description = "AWS ECS Execution Managed Roles, usually created outside the project"
   nullable    = false
   sensitive   = true
-}
-
-variable "aws_s3_bucket" {
-  type = string
-  default = "tfstates3"
-  description = "AWS S3 bucket to store the tfstate file"
-  nullable    = false
-}
-
-variable "aws_s3_bucket_path" {
-  type = string
-  default = "tfstates3cejas/nbcu-tfstate-dev/terraform.tfstate"
-  description = "AWS S3 bucket path (key) to store the tfstate file"
-  nullable    = false
 }
 
 # ********************* APP Settings *********************
